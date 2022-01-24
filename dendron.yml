@@ -39,7 +39,7 @@ workspace:
     vaults:
         -
             fsPath: vault
-            name: community
+            name: "dendron.community"
     journal:
         dailyDomain: daily
         name: journal
