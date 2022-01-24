@@ -19,6 +19,9 @@ site:
         action: useVault
         payload:
             - vault
+            - dendron.dendron-site
+            - dendron.docs
+            - dendron.handbook
 commands:
     lookup:
         note:
@@ -38,8 +41,20 @@ commands:
 workspace:
     vaults:
         -
+            fsPath: handbook
+            seed: dendron.handbook
+            name: dendron.handbook
+        -
             fsPath: vault
-            name: "dendron.community"
+            name: dendron.docs
+            workspace: dendron-docs
+        -
+            fsPath: vault
+            seed: dendron.dendron-site
+            name: dendron.dendron-site
+        -
+            fsPath: vault
+            name: dendron.community
     journal:
         dailyDomain: daily
         name: journal
@@ -81,6 +96,20 @@ workspace:
     enableEditorDecorations: true
     maxPreviewsCached: 10
     maxNoteLength: 204800
+    seeds:
+        dendron.dendron-site:
+            site:
+                url: 'https://wiki.dendron.so'
+                index: dendron
+        dendron.handbook:
+            site:
+                url: 'https://handbook.dendron.so'
+                index: handbook
+    workspaces:
+        dendron-docs:
+            remote:
+                type: git
+                url: 'git@github.com:dendronhq/dendron-docs.git'
 preview:
     enableFMTitle: true
     enableNoteTitleForLink: true
