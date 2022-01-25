@@ -55,6 +55,9 @@ workspace:
         -
             fsPath: vault
             name: dendron.community
+            remote:
+                type: git
+                url: 'git@github.com:dendronhq/vault.dendron.community.git'
     journal:
         dailyDomain: daily
         name: journal
