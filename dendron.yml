@@ -58,6 +58,7 @@ workspace:
             remote:
                 type: git
                 url: 'git@github.com:dendronhq/vault.dendron.community.git'
+            sync: sync
     journal:
         dailyDomain: daily
         name: journal
