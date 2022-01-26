@@ -22,6 +22,7 @@ site:
             - dendron.dendron-site
             - dendron.docs
             - dendron.handbook
+            - dendron.docs
 commands:
     lookup:
         note:
@@ -30,6 +31,7 @@ commands:
             leaveTrace: false
             bubbleUpCreateNew: true
             fuzzThreshold: 0.2
+            vaultSelectionModeOnCreate: smart
     randomNote: {}
     insertNote:
         initialValue: templates
