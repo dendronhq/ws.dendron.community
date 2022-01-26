@@ -91,7 +91,7 @@ workspace:
     graph:
         zoomSpeed: 1
     enableAutoCreateOnDefinition: false
-    enableXVaultWikiLink: false
+    enableXVaultWikiLink: true
     enableRemoteVaultInit: true
     enableUserTags: true
     enableHashTags: true
