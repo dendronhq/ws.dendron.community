@@ -1,28 +1,6 @@
-version: 4
-useFMTitle: true
-useNoteTitleForLink: true
-mermaid: true
-useKatex: true
+version: 5
 dev:
     enablePreviewV2: true
-site:
-    copyAssets: true
-    siteHierarchies:
-        - root
-    siteRootDir: docs
-    usePrettyRefs: true
-    title: Dendron
-    description: Personal knowledge space
-    siteLastModified: true
-    gh_edit_branch: main
-    duplicateNoteBehavior:
-        action: useVault
-        payload:
-            - vault
-            - dendron.dendron-site
-            - dendron.docs
-            - dendron.handbook
-            - dendron.docs
 commands:
     lookup:
         note:
@@ -40,27 +18,26 @@ commands:
         enableMultiSelect: false
     insertNoteIndex:
         enableMarker: false
+    copyNoteLink: {}
+    templateHierarchy: template
 workspace:
     vaults:
-        -
-            fsPath: handbook
-            seed: dendron.handbook
-            name: dendron.handbook
-        -
-            fsPath: vault
-            name: dendron.docs
-            workspace: dendron-docs
-        -
-            fsPath: vault
-            seed: dendron.dendron-site
-            name: dendron.dendron-site
-        -
-            fsPath: vault
-            name: dendron.community
-            remote:
-                type: git
-                url: 'git@github.com:dendronhq/vault.dendron.community.git'
-            sync: sync
+        - fsPath: handbook
+          seed: dendron.handbook
+          name: dendron.handbook
+        - fsPath: vault
+          name: dendron.docs
+          workspace: dendron-docs
+        - fsPath: vault
+          seed: dendron.dendron-site
+          name: dendron.dendron-site
+        - fsPath: vault
+          name: dendron.community
+          remote:
+              type: git
+              url: git@github.com:dendronhq/vault.dendron.community.git
+          sync: sync
+          selfContained: true
     journal:
         dailyDomain: daily
         name: journal
@@ -90,8 +67,12 @@ workspace:
             L: low
         todoIntegration: false
         createTaskSelectionType: selection2link
+        taskCompleteStatus:
+            - done
+            - x
     graph:
         zoomSpeed: 1
+        createStub: false
     enableAutoCreateOnDefinition: false
     enableXVaultWikiLink: true
     enableRemoteVaultInit: true
@@ -105,17 +86,20 @@ workspace:
     seeds:
         dendron.dendron-site:
             site:
-                url: 'https://wiki.dendron.so'
+                url: https://wiki.dendron.so
                 index: dendron
         dendron.handbook:
             site:
-                url: 'https://handbook.dendron.so'
+                url: https://handbook.dendron.so
                 index: handbook
     workspaces:
         dendron-docs:
             remote:
                 type: git
-                url: 'git@github.com:dendronhq/dendron-docs.git'
+                url: git@github.com:dendronhq/dendron-docs.git
+    enableHandlebarTemplates: true
+    enableFullHierarchyNoteTitle: false
+    dendronVersion: 0.101.0
 preview:
     enableFMTitle: true
     enableNoteTitleForLink: true
@@ -123,3 +107,38 @@ preview:
     enablePrettyRefs: true
     enableKatex: true
     automaticallyShowPreview: false
+    enableFrontmatterTags: true
+    enableHashesForFMTags: false
+publishing:
+    enableFMTitle: true
+    enableNoteTitleForLink: true
+    enableMermaid: true
+    enablePrettyRefs: true
+    enableKatex: true
+    copyAssets: true
+    siteHierarchies:
+        - root
+    writeStubs: false
+    siteRootDir: docs
+    seo:
+        title: Dendron
+        description: Personal Knowledge Space
+    github:
+        enableEditLink: true
+        editLinkText: Edit this page on GitHub
+        editBranch: main
+        editViewMode: tree
+    enableSiteLastModified: true
+    enableFrontmatterTags: true
+    enableHashesForFMTags: false
+    enableRandomlyColoredTags: true
+    enableTaskNotes: true
+    enablePrettyLinks: true
+    duplicateNoteBehavior:
+        action: useVault
+        payload:
+            - vault
+            - dendron.dendron-site
+            - dendron.docs
+            - dendron.handbook
+            - dendron.docs
